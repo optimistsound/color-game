@@ -1,95 +1,85 @@
 body {
-  font-family: 'Arial', sans-serif;
-  background: #f1f1f1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-}
-
-.container {
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 600px;
+  font-family: Arial, sans-serif;
   text-align: center;
-  padding: 30px;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
 }
 
-h1 {
-  font-size: 2rem;
-  color: #333;
-  margin-bottom: 20px;
+#gameContainer {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: auto;
 }
 
 #colorBox {
   width: 150px;
   height: 150px;
   margin: 20px auto;
+  border: 3px solid black;
   border-radius: 10px;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-#colorOptions {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); /* Responsive grid */
-  gap: 15px;
-  margin-top: 20px;
 }
 
 .color-btn {
-  width: 80px;
-  height: 80px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  border: none;
   cursor: pointer;
-  transition: transform 0.3s, opacity 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  border-radius: 5px;
 }
 
 .color-btn:hover {
   transform: scale(1.1);
 }
 
-.color-btn:active {
-  transform: scale(1.05);
-}
-
 #gameStatus {
-  font-size: 1.2rem;
-  margin-top: 15px;
+  font-size: 18px;
+  margin: 10px 0;
 }
 
 #score {
+  font-size: 20px;
   font-weight: bold;
 }
 
 #newGameButton {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
   background-color: #28a745;
   color: white;
+  padding: 10px 20px;
   border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 16px;
   border-radius: 5px;
-  transition: background-color 0.3s;
 }
 
 #newGameButton:hover {
   background-color: #218838;
 }
 
-#gameStatus {
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin-top: 20px;
+/* Flash effect for correct answer */
+.flash {
+  animation: flashEffect 0.5s ease-in-out;
 }
 
-#newGameButton:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+@keyframes flashEffect {
+  0% { background-color: white; }
+  50% { background-color: lime; }
+  100% { background-color: white; }
+}
+
+/* Highlight correct answer after a wrong guess */
+.highlight {
+  border: 3px solid gold;
+}
+
+/* Disabled buttons after the game ends */
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
